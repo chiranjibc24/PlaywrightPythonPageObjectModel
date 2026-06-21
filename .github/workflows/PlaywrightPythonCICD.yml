@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v3
         with: 
           python-version: "3.11"
 
@@ -32,7 +32,7 @@ jobs:
 
       - name: Run test cases
         continue-on-error: true
-        run: pytest -vv --alluredir=allure-results
+        run: pytest -q --alluredir=allure-results
 
       - name: Allure installation
         if: always()
@@ -49,7 +49,7 @@ jobs:
 
       - name: Configure Pages
         if: always()
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v4
 
       - name: Upload Page Artifact
         if: always()
