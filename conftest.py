@@ -4,7 +4,17 @@ import pytest
 
 @pytest.fixture()
 def navigateAmazon(page):
-    page.goto("http://www.amazon.in")
+    page.goto("https://www.amazon.in")
+
+    continue_btn = page.get_by_role("button", name="Continue shopping")
+
+    try:
+        continue_btn.wait_for(timeout=5000)
+        continue_btn.click()
+    except:
+        pass
+
+    page.wait_for_load_state("networkidle")
 
 
 @pytest.hookimpl(hookwrapper=True)
