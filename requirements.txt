@@ -7,3 +7,4 @@ pytest-order
 playwright
 python-dotenv
 openpyxl
+yamllint

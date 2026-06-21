@@ -15,18 +15,18 @@ def test_cli_env():
 
 
 def test_json():
-    with open("testData\\data1.json") as data:
+    with open("testData/data1.json") as data:
          formattedData = json.load(data)
          print(formattedData["username"])
 
 
 def test_json_1():
-    testData = jsonData("testData\\data1.json")
+    testData = jsonData("testData/data1.json")
     print(testData)
 
 # @pytest.mark.datahandling
 def test_csv():
-    with open("testData\\credentails.csv") as data:
+    with open("testData/credentails.csv") as data:
         formattedData  = csv.DictReader(data)
         values = []
         for i in formattedData:
@@ -36,7 +36,7 @@ def test_csv():
 
 # @pytest.mark.datahanding
 def test_read_csv():
-    with open("testData\\credentails.csv") as data:
+    with open("testData/credentails.csv") as data:
         formattedData = csv.DictReader(data)
         values = list(formattedData)
 
