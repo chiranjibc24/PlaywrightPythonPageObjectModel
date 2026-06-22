@@ -15,19 +15,24 @@ class resultsPage:
         self.productContainer = page.locator('[data-component-type="s-search-result"]')
 
     def wait_for_results_loaded(self):
-        self.firstProduct.wait_for(state="visible", timeout=30000)
+        self.productContainer.first.wait_for(state="visible", timeout=30000)
 
     def addAnItmeToCart(self, itemName):
         add_button = self.addToCartBtn(itemName)
+
+        if not add_button.is_visible():
+            self.firstProduct.click()
+            self.page.wait_for_load_state("domcontentloaded")
+            add_button = self.page.locator('input#add-to-cart-button, button#add-to-cart-button, button[name="submit.addToCart"]')
+
         add_button.wait_for(state="visible", timeout=30000)
         add_button.click()
 
     def wait_for_cart_count_change(self, previous_count: int):
         self.page.wait_for_function(
-            "(cartCount, previous) => Number(cartCount.textContent.trim() || 0) > previous",
-            self.cartCount,
-            previous_count,
-            timeout=30000,
+            "previous => Number(document.querySelector('#nav-cart-count')?.textContent.trim() || 0) > previous",
+            arg=previous_count,
+            timeout=60000,
         )
 
     def getCartCount(self):

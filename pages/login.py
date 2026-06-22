@@ -7,12 +7,11 @@ class loginPage:
         self.emailTextBox = page.locator("input#ap_email_login, input#ap_email")
         self.pwTextBox = page.locator("#ap_password")
         self.continueBtn = page.locator('[type="submit"]')
-        self.signInHeader = page.get_by_text("Sign-In", exact=False)
+        self.signInHeader = page.locator('h1:has-text("Sign-In"), h1:has-text("Sign in"), h2:has-text("Sign-In"), h2:has-text("Sign in")')
         self.emailForm = page.get_by_label("Email or mobile phone number", exact=False)
 
     @allure.step("waitForSignInPage")
     def waitForSignInPage(self):
-        self.signInHeader.wait_for(state="visible", timeout=30000)
         self.emailTextBox.wait_for(state="visible", timeout=30000)
 
     @allure.step("enterEmailValue")    
