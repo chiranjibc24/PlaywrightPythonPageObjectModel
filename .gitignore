@@ -1,8 +1,0 @@
-allure-results
-report.html
-.pytest_cache
-__pycache__
-pages\__pycache__
-tests\__pycache__
-.vscode
-.playwright-mcp
