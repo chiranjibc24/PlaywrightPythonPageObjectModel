@@ -47,12 +47,12 @@ jobs:
         if: ${{ always() }}
         run: allure generate allure-results --clean -o allure-report
 
-      - name: Check Allure Results
-        if: ${{ always() }}
-        run: |
-          pwd
-          ls -la
-          ls -la allure-results || true
+        - name: Check Allure Results
+       if: always()
+       run: |
+    pwd
+    ls -la
+    ls -la allure-results || true
 
       - name: Upload Allure Results
         if: ${{ always() }}

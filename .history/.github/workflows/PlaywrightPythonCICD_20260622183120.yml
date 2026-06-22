@@ -50,9 +50,9 @@ jobs:
       - name: Check Allure Results
         if: ${{ always() }}
         run: |
-          pwd
-          ls -la
-          ls -la allure-results || true
+    pwd
+    ls -la
+    ls -la allure-results || true
 
       - name: Upload Allure Results
         if: ${{ always() }}
