@@ -1,6 +1,6 @@
 
 name: Playwright tests with Python CI/CD
-'on':
+
   push:
     branches: [main]
   pull_request:
@@ -44,7 +44,6 @@ jobs:
           sudo ln -s /opt/allure/bin/allure /usr/bin/allure
 
       - name: Generate Allure Report
-        if: ${{ always() }}
         run: allure generate allure-results --clean -o allure-report
 
       - name: Configure Pages
