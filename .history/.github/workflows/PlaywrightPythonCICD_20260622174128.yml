@@ -58,7 +58,6 @@ jobs:
           path: ./allure-report
 
       - name: Deploy to GitHub Pages
-        id: deployment
         if: ${{ always() }}
         environment:
           name: github-pages
