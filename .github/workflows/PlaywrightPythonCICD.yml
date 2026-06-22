@@ -30,7 +30,6 @@ jobs:
           playwright install --with-deps
 
       - name: Run test cases
-        continue-on-error: true
         run: pytest -vv --alluredir=allure-results
 
       - name: Allure installation

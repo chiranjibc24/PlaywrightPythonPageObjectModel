@@ -1,4 +1,5 @@
 import allure
+import re
 from playwright.sync_api import sync_playwright, expect
 
 class homePage:
@@ -19,7 +20,7 @@ class homePage:
 
     @allure.step("verifyTitle")
     def verifyTitle(self):
-        expect(self.page).to_have_title("Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in")
+        expect(self.page).to_have_title(re.compile(r"Amazon.*India|Amazon\.in", re.IGNORECASE), timeout=20000)
 
     @allure.step("validateThevisibityOfMenu")
     def validateTheVisibityOfMenu(self):

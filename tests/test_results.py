@@ -11,10 +11,10 @@ def test_validatingCartCount(page: Page, navigateAmazon ):
     resultsPageObj = resultsPage(page)
     homePageObj.enterSearchText("iphone 17")
     homePageObj.clickOnSearchBtn()
-    page.wait_for_timeout(3000)
+    resultsPageObj.wait_for_results_loaded()
     count_beforeAdding = resultsPageObj.getCartCount()
     resultsPageObj.addAnItmeToCart("iPhone 17")
-    page.wait_for_timeout(3000)
+    resultsPageObj.wait_for_cart_count_change(count_beforeAdding)
     count_AfterAdding = resultsPageObj.getCartCount()
     @allure.step("assertingCount")
     def assertingCount():
