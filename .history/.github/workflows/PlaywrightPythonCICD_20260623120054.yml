@@ -50,20 +50,11 @@ jobs:
           exit 1
         fi
 
-    - name: Debug - List report contents
-      if: always()
-      run: |
-        echo "=== Allure Report Contents ==="
-        ls -la allure-report/ || echo "Report directory not found"
-        echo "=== Test Results ==="
-        ls -la allure-results/ || echo "Results directory not found"
-
     - name: Upload GitHub Pages Artifact
       if: always()
       uses: actions/upload-pages-artifact@v4
       with:
         path: allure-report
-        retention-days: 30
 
   deploy:
     if: always()
@@ -82,19 +73,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        continue-on-error: true
-
-      - name: Deployment Status
-        if: always()
-        run: |
-          if [ "${{ job.status }}" == "success" ]; then
-            echo "✅ Allure Report deployed successfully!"
-            echo "📊 Report URL: ${{ steps.deployment.outputs.page_url }}"
-          else
-            echo "⚠️ Deployment had issues - check GitHub Pages settings"
-            echo "1. Go to Repository Settings → Pages"
-            echo "2. Ensure 'Deploy from a branch' or 'GitHub Actions' is selected"
-            echo "3. Source should be 'gh-pages' branch or Actions artifacts"
-          fi
 
    

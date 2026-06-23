@@ -82,19 +82,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        continue-on-error: true
-
-      - name: Deployment Status
-        if: always()
-        run: |
-          if [ "${{ job.status }}" == "success" ]; then
-            echo "✅ Allure Report deployed successfully!"
-            echo "📊 Report URL: ${{ steps.deployment.outputs.page_url }}"
-          else
-            echo "⚠️ Deployment had issues - check GitHub Pages settings"
-            echo "1. Go to Repository Settings → Pages"
-            echo "2. Ensure 'Deploy from a branch' or 'GitHub Actions' is selected"
-            echo "3. Source should be 'gh-pages' branch or Actions artifacts"
-          fi
 
    
