@@ -16,7 +16,7 @@ from pages.results import resultsPage
 #     resultsPageObj.addAnItmeToCart("iPhone 17")
 #     resultsPageObj.wait_for_cart_count_change(count_beforeAdding)
 #     count_AfterAdding = resultsPageObj.getCartCount()
-#     @allure.step("Verify the cart count increases after adding an item")
+#     @allure.step("assertingCount")
 #     def assertingCount():
 #         assert int(count_AfterAdding) == int(count_beforeAdding) + 1
 #     assertingCount()
