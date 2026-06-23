@@ -29,7 +29,7 @@ jobs:
         playwright install
 
     - name: Run tests
-      run: pytest -v --alluredir=Reports 
+      run: pytest luredir=Reports 
 
     - name: Install Allure Commandline
       if: always()
