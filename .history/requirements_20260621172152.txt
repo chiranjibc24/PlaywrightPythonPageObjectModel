@@ -1,0 +1,10 @@
+allure-pytest
+pytest
+pytest-html
+pytest-xdist
+pytest-playwright
+pytest-order
+playwright
+python-dotenv
+openpyxl
+yamllint

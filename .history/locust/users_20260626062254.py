@@ -1,0 +1,2 @@
+class DummyJsonUser(httpUser):
+    host

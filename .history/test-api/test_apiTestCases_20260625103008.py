@@ -1,0 +1,15 @@
+import pytest
+from playwright.sync_api import sync_playwright, expect
+
+
+@pytest.mark.api
+def test_getApi(playwright):
+    context = playwright.request.new_context()
+    print(context.get("http://dummyjson.com/products")
+
+
+
+
+
+
+    

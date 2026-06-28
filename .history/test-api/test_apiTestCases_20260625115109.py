@@ -40,22 +40,4 @@ def test_putApi(playwright):
     print(jsonResponse)
     assert response.status==200
 
-@pytest.mark.api
-def test_patchApi(playwright):
-    context=playwright.request.new_context()
-    body = {
-        "title": "Test Chiranjib 123",
-        "price": 1000
-    }
-    response = context.patch("https://dummyjson.com/products/1", data=body)
-    jsonResponse = response.json()
-    print(jsonResponse)
-    assert response.status==200
 
-@pytest.mark.api
-def test_deleteApi(playwright):
-    context=playwright.request.new_context()
-    response = context.delete("https://dummyjson.com/products/1")
-    jsonResponse = response.json()
-    print(jsonResponse)
-    assert response.status==200
