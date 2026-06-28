@@ -1,0 +1,9 @@
+import pytest
+from playwright.sync_api import sync_playwright, expect
+
+
+@pytest.mark.api
+def test_getApi(playwright):
+    context=playwright.request.new_context()
+    response=context.get("https://reqres.in/api/users?page=2")
+    print(response.json())
